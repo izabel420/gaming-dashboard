@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+
+:root {
+  --neon-pink: #ff3ebf;
+  --neon-pink-light: #ff7fd6;
+  --neon-blue: #1ecfff;
+  --neon-blue-light: #6ee6ff;
+  --bg-dark: #050010;
+}
+
+body {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background: linear-gradient(135deg, #0a0018, #0a0022, #1a0030);
+  color: white;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.card {
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Parent container of your profile wrapper */
+.container {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* optional: centers vertically */
+  width: 100%; /* full width of parent */
+  min-height: 100vh; /* optional: full viewport height */
+}
+
+/* Your existing profile styles remain the same */
+.profile-pic-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-left: 50px; /* adjust this to move right */
+  padding-top: 20px; /* adjust this to move down */
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #1ecfff;
+  object-fit: cover;
+  box-shadow: 0 0 15px #ff3ebf;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: #00ff4c;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00ff4c;
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px var(--neon-pink), 0 0 35px var(--neon-blue-light);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-card {
+  width: 100%;
+  max-width: 1300px;
+  height: 200px;
+  border: 2px solid #ff3ebf;
+  box-shadow: 0 0 15px #ff3ebf, 0 0 20px #1ecfff;
+  border-radius: 20px;
+  padding: 10px;
+  background: rgba(10, 0, 25, 0.85);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px #ff3ebf, 0 0 35px #1ecfff;
+}
+
+.center-text {
+  flex: 1;
+  text-align: center;
+}
+
+.main-name {
+  font-size: 2rem;
+  color: #ff3ebf;
+  text-shadow: 0 0 12px #ff3ebf, 0 0 20px #1ecfff;
+  margin: 0;
+}
+
+.ign {
+  font-size: 1.2rem;
+  color: #1ecfff;
+  margin: 5px 0 0 0;
+}
+
+.right-links {
+  display: flex;
+  flex-direction: column; /* stack the mini cards vertically */
+  gap: 6px; /* space between mini cards */
+  text-align: right;
+  padding-right: 50px; /* adjust this to move right */
+}
+
+.right-links p {
+  background-color: #1a0a1f; /* dark mini card background */
+  color: #ff66a1; /* neon/pink text for contrast */
+  font-size: 0.8rem; /* slightly smaller */
+  padding: 6px 10px; /* give it some breathing room */
+  border-radius: 8px; /* rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* subtle shadow for card effect */
+  margin: 0; /* remove default paragraph margin */
+}
+.milestones-section {
+  padding-left: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #ff3ebf;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.milestones-scroll {
+  display: flex;
+  flex-direction: row; /* horizontal row */
+  gap: 30px; /* spacing between cards */
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  flex-wrap: nowrap; /* prevent wrapping */
+  padding-bottom: 10px;
+}
+
+.milestone-card {
+  position: relative;
+  flex: 0 0 280px;
+  height: 220px;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-blue);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding-right: 20px; /* content padding on the right */
+  margin-right: 20px; /* spacing between cards */
+  box-sizing: border-box;
+}
+
+/* Default: show only the game name */
+.card-name {
+  color: #e0f8ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  z-index: 2;
+  transition: opacity 0.3s;
+}
+
+.card-stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #e0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  padding: 10px;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s;
+}
+
+/* On hover: hide name, show stats */
+.milestone-card:hover .card-name {
+  opacity: 0;
+}
+
+.milestone-card:hover .card-stats {
+  opacity: 1;
+}
+
+/* Optional: hover lift effect */
+.milestone-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--neon-pink), 0 0 35px var(--neon-blue);
+}
+
+.games-grid {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.games-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.games-grid::-webkit-scrollbar-thumb {
+  background: var(--neon-pink);
+  border-radius: 4px;
+}
+
+.game-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+}
