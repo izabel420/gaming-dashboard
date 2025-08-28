@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+
+:root {
+  --neon-pink: #ff3ebf;
+  --neon-pink-light: #ff7fd6;
+  --neon-blue: #1ecfff;
+  --neon-blue-light: #6ee6ff;
+  --bg-dark: #050010;
+}
+
+body {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background: linear-gradient(135deg, #0a0018, #0a0022, #1a0030);
+  color: white;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.card {
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Parent container of your profile wrapper */
+.container {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center; /* optional: centers vertically */
+  width: 100%; /* full width of parent */
+  min-height: 100vh; /* optional: full viewport height */
+}
+
+/* Your existing profile styles remain the same */
+.profile-pic-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-left: 50px; /* adjust this to move right */
+  padding-top: 20px; /* adjust this to move down */
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #1ecfff;
+  object-fit: cover;
+  box-shadow: 0 0 15px #ff3ebf;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: #00ff4c;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00ff4c;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px var(--neon-pink), 0 0 35px var(--neon-blue-light);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* HEADER CARD — 80vw width with 10vw gutters */
+.header-card {
+  width: 80vw; /* take 80% of viewport width */
+  max-width: none; /* override .card max-width */
+  margin-left: 10vw; /* 10% gutter left */
+  margin-right: 10vw; /* 10% gutter right */
+  height: 200px;
+  border: 2px solid #ff3ebf;
+  box-shadow: 0 0 15px #ff3ebf, 0 0 20px #1ecfff;
+  border-radius: 20px;
+  padding: 10px;
+  background: rgba(10, 0, 25, 0.85);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px #ff3ebf, 0 0 35px #1ecfff;
+}
+
+.center-text {
+  flex: 1;
+  text-align: center;
+}
+
+.main-name {
+  font-size: 2rem;
+  color: #ff3ebf;
+  text-shadow: 0 0 12px #ff3ebf, 0 0 20px #1ecfff;
+  margin: 0;
+}
+
+.ign {
+  font-size: 1.2rem;
+  color: #1ecfff;
+  margin: 5px 0 0 0;
+}
+
+.right-links {
+  display: flex;
+  flex-direction: column; /* stack the mini cards vertically */
+  gap: 6px; /* space between mini cards */
+  text-align: right;
+  padding-right: 50px; /* adjust this to move right */
+}
+
+.right-links p {
+  background-color: #1a0a1f; /* dark mini card background */
+  color: #ff66a1; /* neon/pink text for contrast */
+  font-size: 0.8rem; /* slightly smaller */
+  padding: 6px 10px; /* give it some breathing room */
+  border-radius: 8px; /* rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* subtle shadow for card effect */
+  margin: 0; /* remove default paragraph margin */
+}
+
+.milestones-section {
+  padding-left: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #ff3ebf;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.milestones-scroll {
+  display: flex;
+  flex-direction: row; /* horizontal row */
+  gap: 30px; /* spacing between cards */
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  flex-wrap: nowrap; /* prevent wrapping */
+  padding-bottom: 10px;
+}
+
+.milestone-card {
+  position: relative;
+  flex: 0 0 280px;
+  height: 220px;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-blue);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding-right: 20px; /* content padding on the right */
+  margin-right: 20px; /* spacing between cards */
+  box-sizing: border-box;
+}
+
+/* Game Analytics Card styling */
+/* Section wrapper */
+.analytics-section {
+  text-align: center;
+  margin: 40px auto;
+  max-width: none; /* allow full viewport-based sizing inside */
+}
+
+/* Title outside card */
+.analytics-title {
+  font-size: 2rem;
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px var(--neon-blue);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* ANALYTICS CARD — 80vw width with 10vw gutters */
+.analytics-card {
+  border: 2px solid var(--neon-blue);
+  background: rgba(10, 0, 25, 0.85);
+  box-shadow: 0 0 15px var(--neon-pink), 0 0 20px var(--neon-blue);
+  padding: 20px;
+  border-radius: 16px;
+  width: 80vw; /* take 80% of viewport width */
+  height: auto !important; /* force natural sizing */
+  max-height: none !important; /* kill any inherited max-height */
+  overflow: visible !important; /* prevent scrollbars */
+}
+
+/* Inside rows */
+.analytics-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.analytics-row {
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--neon-pink-light);
+  box-shadow: 0 0 10px var(--neon-blue-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analytics-row:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 20px var(--neon-pink), 0 0 25px var(--neon-blue);
+}
+
+.analytics-game {
+  font-size: 1.4rem;
+  color: var(--neon-blue);
+  margin-bottom: 8px;
+}
+
+.analytics-row ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #e0f8ff;
+}
+
+.analytics-row li {
+  margin: 5px 0;
+}
+/* Circular Graph Styles */
+
+.circle-stat {
+  position: relative;
+  display: inline-block;
+  margin: 20px; /* ⬅ spacing OUTSIDE the circle (distance from neighbors) */
+  width: 190px;
+  height: 190px;
+}
+
+.circle-stat svg {
+  transform: rotate(-90deg); /* ⬅ rotates so the progress starts from top */
+  width: 190px; /* ⬅ increase this */
+  height: 190px; /* ⬅ increase this */
+}
+
+.circle-center {
+  position: absolute; /* ⬅ places text in the middle of the parent */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.circle-center .percent {
+  font-size: 1.2rem; /* ⬅ text size of the percentage */
+  font-weight: bold;
+  display: block;
+}
+
+.circle-center .label {
+  font-size: 1rem; /* ⬅ text size of the label under the % */
+  color: var(--neon-pink-light);
+}
+
+/* Default: show only the game name */
+.games-grid {
+  display: flex;
+  gap: 20px;
+  width: max-content; /* makes the flex container as wide as its content */
+  max-width: 1500px;
+  overflow-x: visible; /* keep your glow */
+  overflow-y: visible; /* keep your glow */
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  min-width: 100%; /* ensures container always overflows wrapper */
+}
+
+/* Add scroll on parent if needed */
+.games-section {
+  overflow-x: auto; /* parent will scroll horizontally */
+  overflow-y: hidden; /* allow glow to escape vertically */
+}
+
+/* Scrollbar track invisible */
+.games-section::-webkit-scrollbar {
+  height: 9px; /* adjust thickness here */
+  background: transparent;
+}
+
+/* Scrollbar thumb (pink) */
+.games-section::-webkit-scrollbar-thumb {
+  background-color: #ff3ebf; /* neon pink */
+  border-radius: 4px;
+}
+
+/* Scrollbar thumb hover */
+.games-section::-webkit-scrollbar-thumb:hover {
+  background-color: #ff66a1; /* lighter pink */
+}
+
+.game-card {
+  position: relative;
+  flex: 0 0 360px; /* card width */
+  height: 450px; /* card height */
+  scroll-snap-align: start;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Inner content wrapper */
+.card-content {
+  position: absolute; /* absolute inside the card */
+  top: 50%;
+  left: 50%; /* center it */
+  transform: translate(-50%, -50%); /* truly center */
+  width: 80%; /* smaller than full card */
+  height: auto; /* adapt height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3); /* optional translucent background */
+  border-radius: 8px;
+  z-index: 2;
+}
+
+/* Image */
+.card-image {
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Bottom overlay (always visible) */
+.card-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0f8ff;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.card-progress {
+  font-size: 0.9rem;
+}
+
+/* Hover overlay */
+.card-stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #e0f8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 3;
+}
+
+.milestone-card:hover .card-stats {
+  opacity: 1;
+}
+
+.milestone-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--neon-pink), 0 0 35px var(--neon-blue);
+}
+
+/* Mga Bata */
+.others-section {
+  font-family: "Orbitron", sans-serif;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.profile-title {
+  font-size: 2.5rem;
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px var(--neon-pink), 0 0 20px var(--neon-blue);
+  margin-bottom: 5px;
+}
+
+.title-highlight {
+  color: var(--neon-blue);
+}
+
+.profile-description {
+  font-size: 1rem;
+  color: #e0f8ff;
+  margin-bottom: 20px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* allow multiple rows if needed */
+  padding-bottom: 10px;
+}
+
+.profile-card {
+  position: relative;
+  width: 200px;
+  height: 280px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(5, 0, 16, 0.85);
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 15px var(--neon-blue);
+  cursor: default;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--neon-pink), 0 0 25px var(--neon-blue);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  z-index: 0;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  color: #e0f8ff;
+  text-align: center;
+  z-index: 2;
+}
+
+.card-content h3 {
+  margin: 0;
+  color: var(--neon-pink);
+  font-size: 1rem;
+}
+
+.card-content p {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: var(--neon-blue);
+}
